@@ -1,89 +1,61 @@
-# 🔍 ENIAC × Magist — Tech Partnership Assessment
+# ENIAC × Magist — Tech Partnership Assessment
 
-## 🧭 Context
-ENIAC is a premium electronics retailer.
-The objective of this analysis is to evaluate whether Magist can support ENIAC’s tech expansion strategy.
+## Project Overview
+This project evaluates whether **Magist**, a large e-commerce marketplace,
+can support **ENIAC’s premium tech expansion strategy**.
 
-## 🎯 Scope of Analysis
-This assessment focuses on:
-- market structure
-- customer demand
-- revenue and pricing
-- operations and customer satisfaction
+The analysis combines **SQL-based KPIs**, **business reasoning**, and
+**executive-level recommendations**.
 
 ---
 
-## ❓ Business Questions
-1. Does Magist have a strong tech ecosystem?
-2. Is customer demand for tech products sufficient?
-3. Is Magist aligned with ENIAC’s premium pricing?
-4. Can Magist meet operational expectations (delivery and satisfaction)?
-
-### 🎯 Decision Focus
-Is Magist a suitable platform for ENIAC in the short to mid-term?
+## Business Context
+- ENIAC: premium electronics retailer
+- Objective: assess the strategic fit of Magist as a tech partner
 
 ---
 
-## 📊 Analysis Overview
+## Analysis Structure
 
-### Market Structure
-- Majority of products are non-tech
-- Tech sellers represent a small share
-- Only a minority of customers purchase tech products
-
-**Insight:**  
-Magist is a generalist marketplace, not tech-focused.
+### 1️⃣ Market Structure
+- Tech vs Non-Tech products
+- Tech sellers and customers  
+📘 Notebook: `01_market_structure.ipynb`
 
 ---
 
-### Demand, Revenue & Pricing
-- Customer growth is steady but not driven by tech
-- Tech revenue remains significantly lower than non-tech
-- Average tech price on Magist ≈ €120  
-- ENIAC average product price ≈ €540
-
-**Insight:**  
-There is a clear gap in scale and premium positioning.
+### 2️⃣ Demand, Revenue & Pricing
+- Customer demand for tech
+- Revenue contribution
+- Price positioning vs ENIAC  
+📘 Notebook: `02_demand_revenue_pricing.ipynb`
 
 ---
 
-### Operations & Customer Satisfaction
-- Over 90% on-time delivery
-- Customer satisfaction ≈ 77%
-- Logistics and service quality are reliable
-
-**Insight:**  
-Operations are strong and not the limiting factor.
+### 3️⃣ Operations & Satisfaction
+- Delivery performance
+- Customer reviews  
+📘 Notebook: `03_operations_satisfaction.ipynb`
 
 ---
 
-## 🧾 Conclusion & Recommendation (2-Year View)
-
-### Conclusion
-- Magist is a reliable and growing platform
-- However, the tech segment remains limited
-- Pricing and revenue do not align with ENIAC’s premium strategy
-
-### Recommendation
-**Year 1**
-- Avoid full-scale partnership
-- Launch a limited pilot with selected premium products
-- Monitor tech demand, pricing acceptance, and visibility
-
-**Year 2**
-- Scale only if:
-  - tech demand increases
-  - revenue and pricing improve
-  - brand positioning is preserved
-
-### 🎯 Final Statement
-Magist is a reliable platform in terms of logistics and customer satisfaction,  
-but the limited contribution of the tech segment may not fully support ENIAC’s
-premium tech expansion strategy.
+### 4️⃣ Final Recommendation
+- 2-year strategic decision framework  
+📘 Notebook: `04_final_recommendation.ipynb`
 
 ---
 
-## 📁 Repository Structure
-- `data/` — datasets and documentation  
-- `notebooks/` — analytical notebooks by topic  
-- `visuals/` — charts and figures  
+## Data & Methodology
+- All KPIs computed using **SQL (MySQL)**
+- Python used for documentation and interpretation only
+
+📂 SQL files:
+- `sql/01_business_questions_mysql.sql`
+- `sql/02_kpis_for_slides_mysql.sql`
+
+---
+
+## Key Takeaway
+Magist is operationally strong, but its tech segment currently lacks
+the scale and pricing alignment required for ENIAC’s premium strategy.
+Analysis notebooks
