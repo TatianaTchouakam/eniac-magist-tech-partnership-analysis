@@ -136,3 +136,68 @@ SELECT
     1
   ) AS pct_positive_reviews
 FROM reviews r;
+
+-- =========================
+#5 non tech order vs tech orders
+  -- =========================
+USE Magist;
+
+WITH order_flag AS (
+  SELECT
+    oi.order_id,
+    MAX(pt.is_tech) AS has_tech
+  FROM order_items oi
+  JOIN v_products_tech pt ON pt.product_id = oi.product_id
+  GROUP BY oi.order_id
+)
+SELECT
+  CASE WHEN has_tech = 1 THEN 'Tech orders' ELSE 'Non-Tech orders' END AS segment,
+  COUNT(*) AS orders,
+  ROUND(100 * COUNT(*) / SUM(COUNT(*)) OVER (), 1) AS pct_orders
+FROM order_flag
+GROUP BY segment
+ORDER BY orders DESC;
+
+
+-- =========================
+#6 Revenue — Tech vs Non-Tech revenue share
+  -- =========================
+
+  
+USE Magist;
+
+WITH order_revenue AS (
+  SELECT
+    oi.order_id,
+    SUM(oi.price) AS revenue
+  FROM order_items oi
+  GROUP BY oi.order_id
+),
+order_flag AS (
+  SELECT
+    oi.order_id,
+    MAX(pt.is_tech) AS has_tech
+  FROM order_items oi
+  JOIN v_products_tech pt ON pt.product_id = oi.product_id
+  GROUP BY oi.order_id
+)
+SELECT
+  CASE WHEN f.has_tech = 1 THEN 'Tech' ELSE 'Non-Tech' END AS segment,
+  ROUND(SUM(r.revenue), 2) AS total_revenue,
+  ROUND(100 * SUM(r.revenue) / SUM(SUM(r.revenue)) OVER (), 1) AS pct_revenue
+FROM order_revenue r
+JOIN order_flag f ON f.order_id = r.order_id
+GROUP BY segment
+ORDER BY total_revenue DESC;
+
+-- =========================
+#7 Price positioning — Average tech item price
+USE Magist;
+-- =========================
+
+SELECT
+  ROUND(AVG(oi.price), 2) AS avg_tech_item_price
+FROM order_items oi
+JOIN v_products_tech pt ON pt.product_id = oi.product_id
+WHERE pt.is_tech = 1;
+
